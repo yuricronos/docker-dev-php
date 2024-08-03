@@ -15,7 +15,7 @@ RUN docker-php-ext-install pdo pdo_pgsql pgsql
 # enable opcache
 RUN docker-php-ext-enable opcache
 
-#COPY ./config/opcache.ini /usr/local/etc
+COPY php/config/opcache.ini /usr/local/etc/php/conf.d/
 
 EXPOSE 9000
 
