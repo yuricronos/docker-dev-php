@@ -4,10 +4,12 @@ services:
     build:
       dockerfile: ./php/Dockerfile
     volumes:
+      - ./php/config/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+      - ./php/config/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
       - ./src:/var/www/html
   web:
     name: dev_web
-    image: nginx:latest
+    image: docker.io/library/nginx:latest
     ports:
       - "80:8080"
     volumes:
